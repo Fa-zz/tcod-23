@@ -54,3 +54,38 @@ down_stairs = new_tile(
     dark=(ord(">"), (0, 0, 100), (50, 50, 150)),
     light=(ord(">"), (255, 255, 255), (200, 180, 50)),
 )
+# Village specific
+village_ground = new_tile(
+    walkable=True,
+    transparent=True,
+    dark=(ord(" "), (255, 255, 255), (0, 0, 100)),
+    light=(ord(" "), (255, 255, 255), (237, 107, 39)),
+)
+dirt = new_tile(
+    walkable=True,
+    transparent=True,
+    dark=(ord(";"), (255, 255, 255), (0, 0, 100)),
+    light=(ord(";"), (255, 255, 255), (105, 107, 76)),
+)
+gate = new_tile(
+    walkable=False,
+    transparent=False,
+    dark=(ord(" "), (255, 255, 255), (0, 0, 100)),
+    light=(ord(" "), (255, 255, 255), (102, 102, 153)),
+)
+grave = new_tile(
+    walkable=False,
+    transparent=False,
+    dark=(ord(" "), (255, 255, 255), (0, 0, 100)),
+    light=(ord(" "), (255, 255, 255), (102, 102, 153)),
+)
+
+tile_colors = {
+    "floor": (200, 180, 50),
+    "wall": (130, 110, 50),
+    "down_stairs": (200, 180, 50),
+    "ground": (237, 107, 39),
+    "mold": (105, 107, 76),
+    "gate": (102, 102, 153),
+    "grave": (102, 102, 153)
+}

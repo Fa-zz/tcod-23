@@ -194,14 +194,20 @@ def generate_start(
     map_height: int,
     engine: Engine,
 ) -> GameMap:
+    from grid_map import village_grid
     player = engine.player
     dungeon = GameMap(engine, map_width, map_height, entities=[player])
 
     player.place(0,0,dungeon)
 
-    # dungeon.tiles[0,0] = tile_types.floor
     for w in range(dungeon.width):
         for h in range(dungeon.height):
-            dungeon.tiles[w, h] = tile_types.floor
+            if village_grid[h][w] == 1:
+                dungeon.tiles[w, h] = tile_types.wall
+            elif village_grid[h][w] == 2:
+                dungeon.tiles[w, h] = tile_types.dirt
+            else:
+                dungeon.tiles[w, h] = tile_types.village_ground
+
 
     return dungeon
