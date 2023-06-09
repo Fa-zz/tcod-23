@@ -187,3 +187,21 @@ def generate_dungeon(
         rooms.append(new_room)
 
     return dungeon
+
+
+def generate_start(
+    map_width: int,
+    map_height: int,
+    engine: Engine,
+) -> GameMap:
+    player = engine.player
+    dungeon = GameMap(engine, map_width, map_height, entities=[player])
+
+    player.place(0,0,dungeon)
+
+    # dungeon.tiles[0,0] = tile_types.floor
+    for w in range(dungeon.width):
+        for h in range(dungeon.height):
+            dungeon.tiles[w, h] = tile_types.floor
+
+    return dungeon
